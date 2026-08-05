@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>服务器管理界面---已关闭服务器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href="index.html" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+		<script type="text/javascript" src="js/refresh.js"></script>
+	</head>
+	
+	<body>
+		<h1>服务器管理</h1>
+		<table>
+			<tr>
+				<th>服务器名称(Server x)</th>
+				<th>IP地址(公网IP)</th>
+				<th>操作系统(Windows/Linux)</th>
+				<th>CPU使用率(%)</th>
+				<th>内存使用率(%)</th>
+				<th>磁盘使用率(%)</th>
+			</tr>
+			<tr>
+				<td>Server 1</td>
+				<td>------------ yqi.com/index.html</td>
+				<td>GNU/Linux-amd64</td>
+				<td><div class="cpuUsage1">------</div></td>
+				<td><div class="memoryUsage1">------</div></td>
+				<td><div class="diskUsage1">------</div></td>
+			</tr>
+			<tr>
+				<td>Server 2</td>
+				<td>------------</td>
+				<td>GNU/Linux-amd64-Kali_Linux</td>
+				<td><div class="cpuUsage2">------</div></td>
+				<td><div class="memoryUsage2">------</div></td>
+				<td><div class="diskUsage2">------</div></td>
+			</tr>
+			<tr>
+				<td>Server 3</td>
+				<td>-----------</td>
+				<td>Windows_11-x64-22H2 minecraft-fwq-1.20.1</td>
+				<td><div class="cpuUsage3">------</div></td>
+				<td><div class="memoryUsage3">------</div></td>
+				<td><div class="diskUsage3">------</div></td>
+			</tr>
+		</table>
+		
+		<h2>
+			<center>服务器控制</center>
+		</h2>
+		<div style="text-align: center">
+			<button class="button">
+				<a class="button_world" href="index.html">启动服务器</a>
+			</button>
+			<br />
+			<button class="button">
+				<a class="button_world" href="log/Sever1.log">查看日志-Sever 1</a>
+			</button>
+			<button class="button">
+				<a class="button_world" href="log/Sever1.log">查看日志-Sever 2</a>
+			</button>
+			<button class="button">
+				<a class="button_world" href="log/Sever1.log">查看日志-Sever 3</a>
+			</button>
+		</div>
+		
+		<br />
+		
+		<div class="status">
+			<h2>
+				<center>服务器状态</center>
+			</h2>
+			<ul>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>未安装</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>------</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						正常
+						<br />
+						------ MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						------
+						<br />
+						---冗余
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						------
+						<br />
+						------/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 1</span>
+				</li>
+			</ul>
+			
+			<br /><br />
+			
+			<ul>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>------</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						------
+						<br />
+						------ MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						------
+						<br />
+						---冗余
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						------
+						<br />
+						------/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 2</span>
+				</li>
+			</ul>
+			
+			<br /><br />
+			
+			<center>
+				<h1>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					服务器接近损坏
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+				</h1>
+			</center>
+			<ul	fa fa-exclamation-circle>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+						<br />
+						------
+						<br />
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+						<br />
+						------
+						<br />
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+						<br />
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>------</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>------</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+						<br />
+						NULL------ MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						------
+						<br />
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+						<br />
+						------/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 3</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

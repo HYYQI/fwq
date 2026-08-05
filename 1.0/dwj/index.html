@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>服务器管理界面</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f2f2f2;
+			}
+			h1 {
+				font-size: 32px;
+				text-align: center;
+				margin:20px 0;
+			}
+			table {
+				width: 80%;
+				margin: 0 auto;
+				border-collapse: collapse;
+			}
+			th, td {
+				font-size: 18px;
+				padding: 10px;
+				text-align: center;
+				border: 1px solid #ccc;
+			}
+			th {
+				background-color: #ddd;
+			}
+			tr:nth-child(even) {
+				background-color: #f2f2f2;
+			}
+			.button_DWJ {
+				display: inline-block;
+				background-color:#999;
+				color:#999;
+				padding: 5px 10px;
+				margin: 10px 0;
+				border: none
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 10px;
+			}
+			.button {
+				display: inline-block;
+				background-color: #4CAF50;
+				color: white;
+				padding: 10px 20px;
+				margin: 20px 0;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 18px;
+			}
+			.button_world {
+				color:#FFF
+			}
+			.button:hover {
+				background-color: #3e8e41;
+				transition: background-color 0.2s ease-in-out;
+			}
+			.status {
+				margin: 40px 0;
+			}
+			.status h2 {
+				font-size: 24px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.status ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.status li {
+				width: 12%;
+				text-align: center;
+				background-color: #ddd;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+			}
+			.status li p {
+				font-size: 18px;
+				margin: 10px 0;
+			}
+			.status li span {
+				font-size: 24px;
+				font-weight: bold;
+			}
+			.status li .icon {
+				font-size: 36px;
+				margin-bottom: 10px;
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+		<script>
+			var intervalId;
+			function Reboot() {
+				intervalId = setInterval(function() {
+					location.reload();
+				}, 3000);
+			}
+			function stopRefreshing() {
+				clearInterval(intervalId);
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h1>服务器状态监视器</h1>
+		<table>
+			<tr>
+				<th>服务器名称(Server x)</th>
+				<th>IP地址(公网IP)</th>
+				<th>操作系统(Windows/Linux)</th>
+				<th>CPU使用率(%)</th>
+				<th>内存使用率(%)</th>
+				<th>磁盘使用率(%)</th>
+			</tr>
+			<tr>
+				<td>Server 1</td>
+				<td>43.25.39.776 yqi.com/index.html</td>
+				<td>GNU/Linux-amd64</td>
+				<td>76%</td>
+				<td>50%</td>
+				<td>32%</td>
+			</tr>
+			<tr>
+				<td>Server 2</td>
+				<td>10.11.55.185</td>
+				<td>GNU/Linux-amd64-Kali_Linux</td>
+				<td>8%</td>
+				<td>13%</td>
+				<td>2%</td>
+			</tr>
+			<tr>
+				<td>Server 3</td>
+				<td>46.28.3.664</td>
+				<td>Windows_11-x64-22H2 minecraft-fwq-1.20.1</td>
+				<td>100%</td>
+				<td>89%</td>
+				<td>93%</td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<div class="status">
+			<h2>
+				<center>服务器状态</center>
+			</h2>
+			<ul>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>60℃</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>未安装</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>32%</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>50%</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						正常
+						<br />
+						10000 MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						正常
+						<br />
+						2冗余
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>00:00:00</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>25℃</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						正常
+						<br />
+						10000/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>100%</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 1</span>
+				</li>
+			</ul>
+			
+			<br /><br />
+			
+			<ul>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>60℃</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>2%</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>13%</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						正常
+						<br />
+						10000 MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						正常
+						<br />
+						2冗余
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>00:00:00</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>25℃</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						正常
+						<br />
+						10000/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>100%</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 2</span>
+				</li>
+			</ul>
+			
+			<br /><br />
+			
+			<center>
+				<h1>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					服务器接近损坏
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+					<i class="fa fa-exclamation-triangle"></i>
+				</h1>
+			</center>
+			<ul	fa fa-exclamation-circle>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU1</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						异常
+						<br />
+						温度过高
+						<br />
+						已损坏
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-microchip"></i>
+					<p>CPU2</p>
+					<span>正常</span>
+				</li>
+				<li>
+					<i class="icon fas fa-thermometer-half"></i>
+					<p>CPU温度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						137℃
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡1</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						异常
+						<br />
+						温度过高
+						<br />
+						94℃
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-video"></i>
+					<p>显卡2</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						异常
+						<br />
+						未检测到显卡
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-hdd"></i>
+					<p>硬盘</p>
+					<span>93%</span>
+				</li>
+				<li>
+					<i class="icon fas fa-memory"></i>
+					<p>内存</p>
+					<span>89%</span>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<i class="icon fas fa-wifi"></i>
+					<p>网络</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						异常
+						<br />
+						NULL47458 MB/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-plug"></i>
+					<p>电源</p>
+					<span>
+						正常
+						<br />
+						<i class="fa fa-exclamation-triangle"></i>
+						无冗余
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-clock"></i>
+					<p>系统时间</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						------
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-temperature-high"></i>
+					<p>环境温度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						68℃
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-fan"></i>
+					<p>风扇</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						异常
+						<br />
+						0/s
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-signal"></i>
+					<p>信号强度</p>
+					<span>
+						<i class="fa fa-exclamation-triangle"></i>
+						0%
+					</span>
+				</li>
+				<li>
+					<i class="icon fas fa-server"></i>
+					<p>服务器名称</p>
+					<span>Server 3</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
