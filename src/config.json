@@ -1,3 +1,7 @@
 {
-    "servers": [1,2]
+    "servers": [1, 2],
+    "icons": {
+        "1": "/favicon.svg",
+        "2": "/favicon.svg"
+    }
 }

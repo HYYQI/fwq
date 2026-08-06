@@ -21,3 +21,39 @@ body {
   background: #16171d;
   color: var(--text);
 }
+
+/* ===== 基础卡片布局 ===== */
+/* 一行，卡片横向排列，屏幕过窄时自动换行竖直排列 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* 卡片：撑满整行剩余空间，带阴影，内容自适应 */
+.card {
+  flex: 1 1 0;
+  min-width: 180px;
+  background: var(--item-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 卡片标题 */
+.title {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* 卡片内容 */
+.info {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-h);
+  word-break: break-all;
+}

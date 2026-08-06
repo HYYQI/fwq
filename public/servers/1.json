@@ -1,8 +1,13 @@
 {
     "id": 1,
     "name": "debian 13",
-    "system": "GNU/Linux Debian Trixie",
+    "hostname":"HYYQI",
+    "status": true,
+    "system": "Debian GNU/Linux 13 (trixie)",
+    "version": "13.6",
     "platform": "x86_64",
+    "kernel": "6.12.94+deb13-amd64",
+    "starttime": 0,
     "locale": {
         "LANGUAGE": "",
         "LC_CTYPE": "zh_CN.UTF-8",
@@ -20,33 +25,32 @@
         "LC_ALL": ""
     },
     "hardwork": {
-        "cpu": {
-            "0": "Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz"
-        },
-        "gpu": {
-            "0": "NVIDIA Corporation GT218M [GeForce 310M]"
-        },
-        "memory": {
-            "0":{
-                "name": "...",
-                "total": "..."
-            },
-            "1":{
-                "name": "...",
-                "total": "..."
+        "cpu": [
+            {
+                "name": "Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz",
+                "frequency": "2.4GHz",
+                "cores": 4
             }
+        ],
+        "gpu": [
+            {
+                "name": "NVIDIA Corporation GT218M [GeForce 310M]",
+                "memory": "512MB"
+            }
+        ],
+        "memory": {
+            "size": "8GB"
         },
-        "disk": {
-            "0": {
-                "name": "...",
-                "total": "...",
-                "used": ""
-           },
-           "1": {
-               "name": "...",
-               "total": "...",
-               "used": ""
-           }
+        "disk": [
+            {
+                "name": "sda",
+                "sizeG": 512,
+                "size": "512GB"
+            }
+        ],
+        "network": {
+            "name": "eth0",
+            "ip": "127.0.0.1"
         }
     }
 }

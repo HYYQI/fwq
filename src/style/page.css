@@ -98,3 +98,77 @@
   background: var(--item-hover);
 }
 
+/* 顶栏当前选中项高亮 */
+.monitor-item.active {
+  background: var(--item-selected-bg);
+  color: var(--item-selected);
+  border-bottom: 2px solid var(--item-selected);
+}
+
+/* ===== 概览页 ===== */
+.overview-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 第一行大卡片：服务器名 + id + 系统信息 + 在线状态 */
+.overview-body > .row:first-child .card {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 左侧信息区 */
+.card-inner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* 服务器名 + id 同行，id 靠右 */
+.card-inner-left .row {
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+/* 服务器名最大 */
+.card-inner-left .title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+/* id 略小略暗，靠右 */
+.card-inner-left .id {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* 系统信息，与 id 大小相近 */
+.card-inner-left .system {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* 在线状态：撑满整行高度，靠右 */
+.status {
+  margin: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  font-size: 15px;
+  color: var(--text-h);
+  background: var(--item-hover);
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
