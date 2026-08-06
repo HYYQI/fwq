@@ -1,0 +1,100 @@
+/* ===== 主页面通用 ===== */
+.page {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* 隐藏状态 */
+.hidden {
+  display: none !important;
+}
+
+/* ===== 未选择服务器提示页 ===== */
+.no-server-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-server-selected-text {
+  font-size: 24px;
+  color: var(--text);
+}
+
+/* ===== 服务器不存在提示页 ===== */
+.server-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-not-found-text {
+  font-size: 24px;
+  color: var(--text);
+}
+
+/* ===== 服务器监控页 ===== */
+.server-monitor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 监控页内部子页面（概览/性能）不继承左侧边距，默认隐藏 */
+.server-monitor .overview,
+.server-monitor .performance {
+  margin-left: 0;
+  padding: 24px;
+  min-height: auto;
+  display: none;
+}
+
+/* 当前显示的子页面 */
+.server-monitor .page.show {
+  display: block;
+}
+
+/* 顶部概览/性能切换栏 */
+.monitor-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  margin: -24px -24px 0;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border);
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.monitor-item {
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--text-h);
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* 选项之间的竖线分割 */
+.monitor-item + .monitor-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 1px;
+  background: var(--sidebar-border);
+}
+
+.monitor-item:hover {
+  background: var(--item-hover);
+}
+

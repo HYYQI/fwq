@@ -1,0 +1,23 @@
+/* ===== 全局基础 ===== */
+:root {
+  --sidebar-width: 240px;
+  --sidebar-bg: #1f2028;
+  --sidebar-border: #2e303a;
+  --item-bg: #2a2c36;
+  --item-hover: #343744;
+  --item-selected: #3b82f6;
+  --item-selected-bg: rgba(59, 130, 246, 0.15);
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: #16171d;
+  color: var(--text);
+}
