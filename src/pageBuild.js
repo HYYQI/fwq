@@ -2,13 +2,16 @@
 function uptime(server) {
     const starttime = server.starttime;
     const now = new Date().getTime();
-    const diff = now - starttime;
+    const diff = (now - starttime) / 1000;
     if (diff < 0) return "时间错误"
-    const left = Math.floor(diff / 3600000);
-    const day = Math.floor(left / 24);
-    const hour = left % 24;
-    if (day > 0) return `${day}天 ${hour}小时`
-    return `${hour}小时`
+    const day = Math.floor(diff / 86400);
+    const hour = Math.floor((diff % 86400) / 3600);
+    const minute = Math.floor((diff % 3600) / 60);
+    const second = Math.floor(diff % 60);
+    if(day < 0 && hour < 0 && minute < 0) return `${second} 秒`;
+    if(day < 0 && hour < 0) return `${minute} 分 ${second} 秒`;
+    if(day < 0) return `${hour} 小时 ${minute} 分 ${second} 秒`;
+    return `${day} 天 ${hour} 小时 ${minute} 分 ${second} 秒`;
 }
 function cpuInfo(server) {
     const cpus = server.hardwork.cpu;
@@ -36,7 +39,7 @@ function cpuInfo(server) {
             </span>
             <span class="card">
                 <p class="title">使用率</p>
-                <p class="info" id="cpu${cpu}-usage">>0%</p>
+                <p class="info" id="cpu${cpu}-usage">0%</p>
             </span>
         </div>
         `
@@ -118,7 +121,9 @@ function diskInfo(server) {
         </span>
       `
     }
-    lines += `</div>`;
+    lines += `
+    </div>
+    `;
     return lines;
 }
 function networkInfo(server) {
@@ -145,53 +150,60 @@ function networkInfo(server) {
     `
 }
 
-function overviewPageBuilder(overview, server) {
+function overviewPageBuilder(overview, server, uptimeUpdateTime) {
     let overviewPage = `
-    <div class="overview-body">
-        <div class="row">
-            <span class="card">
-                <div class="card-inner-left>
-                    <div class="row">
-                        <p class="title>${server.name}</p>
-                        <p class="id">id: ${server.id}</p>
-                    </div>
-                    <div class="row">
-                        <p class="system">${server.system}-${server.version}</p>
-                    </div>
+    <div class="row">
+        <span class="card">
+            <div class="card-inner-left>
+                <div class="row">
+                    <p class="title>${server.name}</p>
+                    <p class="id">id: ${server.id}</p>
                 </div>
-                <!--单独在右边-->
-                <p class="status">${server.status ? `在线 ${uptime(server)}` : "异常"}</p>
-            </span>
-        </div>
-
-        <div class="row">
-            <span class="card">
-                <p class="title">架构</p>
-                <p class="info">${server.platform}</p>
-            </span>
-            <span class="card">
-                <p class="title">内核</p>
-                <p class="info">${server.kernel}</p>
-            </span>
-            <span class="card">
-                <p class="title">语言</p>
-                <p class="info">${server.locale.LANGUAGE}</p>
-            </span>
-            <span class="card">
-                <p class="title">主机名</p>
-                <p class="info">${server.hostname}</p>
-            </span>
-        </div>
-
-        <p class="card">硬件信息</p>
-        ${cpuInfo(server)}
-        ${gpuInfo(server)}
-        ${memoryInfo(server)}
-        ${diskInfo(server)}
-        ${networkInfo(server)}
+                <div class="row">
+                    <p class="system">${server.system}-${server.version}</p>
+                </div>
+            </div>
+            <!--单独在右边-->
+            <p class="status"></p>
+        </span>
     </div>
+
+    <div class="row">
+        <span class="card">
+            <p class="title">架构</p>
+            <p class="info">${server.platform}</p>
+        </span>
+        <span class="card">
+            <p class="title">内核</p>
+            <p class="info">${server.kernel}</p>
+        </span>
+        <span class="card">
+            <p class="title">语言</p>
+            <p class="info">${server.locale.LANGUAGE}</p>
+        </span>
+        <span class="card">
+            <p class="title">主机名</p>
+            <p class="info">${server.hostname}</p>
+        </span>
+    </div>
+
+    <p class="row">硬件信息</p>
+    ${cpuInfo(server)}
+    ${gpuInfo(server)}
+    ${memoryInfo(server)}
+    ${diskInfo(server)}
+    ${networkInfo(server)}
     `
     overview.innerHTML = overviewPage;
+    setInterval(() => {
+        overview.querySelector(".status").textContent = server.status ? `在线 ${uptime(server)}` : "异常"
+    }, uptimeUpdateTime)
+    
+    
 }
 
-export { overviewPageBuilder };
+function updateOPdata(overview, sources, time) {
+    const networkUp = overview
+}
+
+export { overviewPageBuilder, updateOPdata };

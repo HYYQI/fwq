@@ -2,7 +2,7 @@ import "./style/main.css";
 import "./style/page.css";
 import "./style/tab.css";
 import * as echarts from "echarts";
-import { overviewPageBuilder } from "./pageBuild"
+import * as page from "./pageBuild";
 import config from "./config.json";
 
 // app
@@ -171,8 +171,6 @@ const severMonitorPage = `
 </div>
 `
 
-
-
 // 拼接html
 htmlBody += leftTab;
 htmlBody += noServerSelectedPage;
@@ -185,8 +183,15 @@ leftBarListener(document, id);
 handleError(document);
 topBarListener(document);
 // 构建页面
-overviewPageBuilder(
-    document.querySelector(".overview"),
-    await getServerData(id)
+const OverviewPage = document.querySelector(".overview")
+page.overviewPageBuilder(
+    OverviewPage,
+    await getServerData(id),
+    config.pages.overview.uptimeUpdateTime
+)
+page.updateOPdata(
+    OverviewPage,
+    config.pages.overview.sources,
+    config.pages.overview.updateTime
 )
 

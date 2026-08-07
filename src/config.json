@@ -3,5 +3,12 @@
     "icons": {
         "1": "/favicon.svg",
         "2": "/favicon.svg"
+    },
+    "pages": {
+        "overview": {
+            "sources": "random",
+            "uptimeUpdateTime": 500,
+            "updateTime": 1000
+        }
     }
 }
