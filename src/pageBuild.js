@@ -39,7 +39,7 @@ function cpuInfo(server) {
             </span>
             <span class="card">
                 <p class="title">使用率</p>
-                <p class="info" id="cpu${cpu}-usage">0%</p>
+                <p class="info" id="cpu-usage">0%</p>
             </span>
         </div>
         `
@@ -68,13 +68,14 @@ function gpuInfo(server) {
             </span>
             <span class="card">
                 <p class="title">使用率</p>
-                <p class="info" id="gpu${gpu}-usage">0%</p>
+                <p class="info" id="gpu-usage">0%</p>
             </span>
         </div>
         `
     }
     return lines;
 }
+let haveSwap = false
 function memoryInfo(server) {
     const memory = server.hardwork.memory;
     let lines = `
@@ -97,6 +98,29 @@ function memoryInfo(server) {
         </span>
     </div>
     `
+    if (memory.swap) {
+        haveSwap = true
+        lines += `
+        <div class="row">
+            <span class="card">
+               <p class="title">交换</p>
+               <p class="info">${memory.swap.size}</p>
+            </span>
+            <span class="card">
+               <p class="title">已用</p>
+                <p class="info" id="swap-used"></p>
+            </span>
+            <span class="card">
+                <p class="title">可用</p>
+                <p class="info" id="swap-usable"></p>
+            </span>
+            <span class="card">
+                <p class="title">空闲</p>
+                <p class="info" id="swap-free">0%</p>
+            </span>
+        </div>
+        `
+    }
     return lines;
 }
 function diskInfo(server) {
@@ -110,7 +134,7 @@ function diskInfo(server) {
     <div class="row">
         <span class="card">
             <p class="title">磁盘</p>
-            <p class="info">${totalSizeG}G</p>
+            <p class="info">${totalSizeG}GB</p>
         </span>
     `
     for (let disk = 0; disk < disks; disk++) {
@@ -195,15 +219,26 @@ function overviewPageBuilder(overview, server, uptimeUpdateTime) {
     ${networkInfo(server)}
     `
     overview.innerHTML = overviewPage;
+    // 更新在线时间
     setInterval(() => {
         overview.querySelector(".status").textContent = server.status ? `在线 ${uptime(server)}` : "异常"
     }, uptimeUpdateTime)
-    
-    
 }
 
 function updateOPdata(overview, sources, time) {
-    const networkUp = overview
+    const cpuUsage = overview.querySelectorAll("#cpu-usage");   // for 遍历
+    const gpuUsage = overview.querySelectorAll("#gpu-usage");
+    const memoryUsed = overview.querySelector("#memory-used");
+    const memoryUsable = overview.querySelector("#memory-usable");
+    const memoryFree = overview.querySelector("#memory-free");
+    const networkUp = overview.querySelector("#network-up");
+    const networkDown = overview.querySelector("#network-down");
+    async function getData(sources) {
+        if(sources === "random") {
+            return {}
+        }
+
+    }
 }
 
 export { overviewPageBuilder, updateOPdata };

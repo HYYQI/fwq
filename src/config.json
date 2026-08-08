@@ -1,5 +1,5 @@
 {
-    "servers": [1, 2],
+    "servers": [1],
     "icons": {
         "1": "/favicon.svg",
         "2": "/favicon.svg"
@@ -7,7 +7,7 @@
     "pages": {
         "overview": {
             "sources": "random",
-            "uptimeUpdateTime": 500,
+            "uptimeUpdateTime": 100,
             "updateTime": 1000
         }
     }

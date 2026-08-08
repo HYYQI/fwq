@@ -39,7 +39,10 @@
             }
         ],
         "memory": {
-            "size": "8GB"
+            "size": "8GB",
+            "swap": {
+                "size": "8GB"
+            }
         },
         "disk": [
             {

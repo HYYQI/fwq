@@ -2,7 +2,7 @@ import "./style/main.css";
 import "./style/page.css";
 import "./style/tab.css";
 import * as echarts from "echarts";
-import * as page from "./pageBuild";
+import * as page from "./pageBuild.js";
 import config from "./config.json";
 
 // app
