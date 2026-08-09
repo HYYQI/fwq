@@ -1,37 +1,40 @@
 import "./style/main.css";
 import "./style/page.css";
 import "./style/tab.css";
-import * as echarts from "echarts";
+// import * as echarts from "echarts";
 import * as page from "./pageBuild.js";
-import config from "./config.json";
 
-// app
-const app = document.querySelector("#app");
-let htmlBody = "";
-
-// 全局状态
-let NoServerSelected = false;
-let ServerNotFound = false;
-const id = new URLSearchParams(window.location.search).get("id");
+// 获取配置
+function getConfig() {
+    let config = fetch("/api/config");
+    config = JSON.parse(config)
+    return config;
+}
 
 // 获取服务器信息
-async function getServerData(id) {
-    // 未来从服务器拉数据
-
-    // 从本地文件读取
-    const file = await fetch(`./servers/${id}.json`);
-    const data = await file.json();
-    return data;
+function getServerConfig(id) {
+    let data = fetch(`/api/server/config?id=${id}`);
+    data = JSON.parse(data);
+    return data
 }
 
-// 获取服务器列表
-async function getServerList() {
-    const servers = [];
-    for (let i = 0; i < config.servers.length; i++) {
-        servers[i] = await getServerData(config.servers[i]);
+function getServerList(config){
+    let list = {};
+    for(let id = 0; id < config.servers.length; id++) {
+        list[id.toString()] = getServerConfig(id)
     }
-    return servers
+    return list
 }
+
+// 全局信息
+const app = document.querySelector("#app");
+const id = new URLSearchParams(window.location.search).get("id");
+const config = getConfig();
+const serverList = getServerList(config);
+const serverData = serverList[id];
+let NoServerSelected = false;
+let ServerNotFound = false;
+let htmlBody = "";
 
 // 异常事件处理
 function handleError(page) {
@@ -128,8 +131,8 @@ function topBarListener(page) {
 
 // 构造html框架
 // 服务器选择侧边栏
-const servers_list = (await getServerList()).map((server) => ({ id: server.id, name: server.name }));
-const servers_list_html = servers_list.map((server) =>
+const serverName = serverList.map((server) => ({ id: server.id, name: server.name }));
+const servers_list_html = serverName.map((server) =>
     `<li class="server-item" server-id="${server.id}">
         <span class="server-item-icon"><img src="${config.icons[server.id]}"</span>
         <span class="server-item-text">${server.name}</span>
