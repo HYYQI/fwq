@@ -9,19 +9,8 @@
     "kernel": "6.12.94+deb13-amd64",
     "starttime": 0,
     "locale": {
+        "LANG": "zh_CN.UTF-8",
         "LANGUAGE": "",
-        "LC_CTYPE": "zh_CN.UTF-8",
-        "LC_NUMERIC": "zh_CN.UTF-8",
-        "LC_TIME": "zh_CN.UTF-8",
-        "LC_COLLATE": "zh_CN.UTF-8",
-        "LC_MONETARY": "zh_CN.UTF-8",
-        "LC_MESSAGES": "zh_CN.UTF-8",
-        "LC_PAPER": "zh_CN.UTF-8",
-        "LC_NAME": "zh_CN.UTF-8",
-        "LC_ADDRESS": "zh_CN.UTF-8",
-        "LC_TELEPHONE": "zh_CN.UTF-8",
-        "LC_MEASUREMENT": "zh_CN.UTF-8",
-        "LC_IDENTIFICATION": "zh_CN.UTF-8",
         "LC_ALL": ""
     },
     "hardwork": {
@@ -39,16 +28,19 @@
             }
         ],
         "memory": {
-            "size": "8GB",
+            "size": "8",
+            "count": "GB",
+            "type": "DDR3",
             "swap": {
-                "size": "8GB"
+                "size": "8",
+                "count": "GB"
             }
         },
         "disk": [
             {
                 "name": "sda",
-                "sizeG": 512,
-                "size": "512GB"
+                "size": 512,
+                "count": "GB"
             }
         ],
         "network": {

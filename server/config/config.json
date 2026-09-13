@@ -1,14 +1,21 @@
 {
-    "servers": [1],
-    "icons": {
-        "1": "/favicon.svg",
-        "2": "/favicon.svg"
-    },
-    "pages": {
-        "overview": {
-            "sources": "random",
-            "uptimeUpdateTime": 100,
-            "updateTime": 1000
+    "servers": {
+        "1": {
+            "name": "debian 13",
+            "url": "server/config/server.json",
+            "icon": "/favicon.svg"
         }
-    }
+    },
+    "pages": [
+        {
+            "name": "概览",
+            "id": "overview",
+            "active": true,
+            "config": {
+                "sources": "random",
+                "uptimeUpdateTime": 100,
+                "dataUpdateTime": 1000
+            }
+        }
+    ]
 }
