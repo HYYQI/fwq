@@ -3,17 +3,17 @@
         "1": {
             "name": "debian 13",
             "url": "server/config/server.json",
-            "icon": "/favicon.svg"
+            "icon": "/favicon.svg",
+            "source": "random"
         }
     },
     "pages": [
         {
             "name": "概览",
             "id": "overview",
-            "active": true,
             "config": {
-                "sources": "random",
-                "uptimeUpdateTime": 100,
+                "active": true,
+                "statusUpdateTime": 500,
                 "dataUpdateTime": 1000
             }
         }

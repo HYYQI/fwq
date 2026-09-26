@@ -96,7 +96,7 @@ function leftBarListener(page, selectedServerId) {
     })
 }
 // 顶栏事件处理
-function topBarListener(page) {
+function topBarListener(page) { //待处理：重构前残留，页面激活失活
     let showingPage = "overview";
     const OverviewPage = page.querySelector(".overview");
     const PerformancePage = page.querySelector(".performance");
@@ -157,12 +157,11 @@ const serverNotFoundPage = `
 `
 
 // 主页面
-console.log("pageConfig:", pageConfig);
 const monitors = pageConfig.map((page, key) => {
-    return `<div id="${page.id}" page-id="${key}" class="${page.id} page ${page.active ? 'show' : ''}"></div>`
+    return `<div id="${page.id}" page-id="${key}" class="${page.id} page ${page.config.active ? 'show' : ''}"></div>`
 }).join("\n");
 const selectors = pageConfig.map((page) => {
-    return `<div id="${page.id}" class="monitor-item ${page.active ? 'active' : ''}">${page.name}</div>`
+    return `<div id="${page.id}" class="monitor-item ${page.config.active ? 'active' : ''}">${page.name}</div>`
 }).join("\n");
 const severMonitorPage = `
 <div class="server-monitor page">
@@ -184,10 +183,12 @@ app.innerHTML = htmlBody;
 leftBarListener(document, id);
 handleError(document);
 topBarListener(document);
-// 构建页面
-const OverviewPage = document.querySelector(".overview");
-const overview = new Overview(OverviewPage, serverData, pageConfig[OverviewPage.getAttribute("page-id")].config);
-overview.setup();
+if (!(NoServerSelected || ServerNotFound)) {
+    // 构建页面
+    const OverviewPage = document.querySelector(".overview");
+    const overview = new Overview(OverviewPage, serverData, pageConfig[OverviewPage.getAttribute("page-id")].config);
+    overview.mount();
+}
 // const OverviewPage = document.querySelector(".overview")
 // page.overviewPageBuilder(
 //     OverviewPage,
